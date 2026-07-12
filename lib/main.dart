@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 void main() {
+  debugPaintSizeEnabled = true;
   runApp(const MyApp());
 }
 
@@ -14,41 +16,77 @@ class MyApp extends StatelessWidget {
 
       home: Scaffold(
         appBar: AppBar(title: const Text('Login Page')),
-        body: Padding(padding: const EdgeInsets.all(24.0),
-        child:Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children:[
-            const SizedBox(height: 60),
-            const Text(
-              'Welcome Back!',
-              style: TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
+        body:Container(
+          width: 700,
+          height: 700,
+          child: Column( 
+             
+            mainAxisAlignment:MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                'Welcome to my app!!',
+                style: TextStyle(
+                  color: Colors.blue,
+                  fontSize: 35,
+                ),
+                
               ),
-            ),
-            const SizedBox(height: 40),
-            TextField(
-              keyboardType: TextInputType.emailAddress,
-              decoration: const InputDecoration(
-                labelText: 'Email',
-                hintText: 'Enter your email',
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.email),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text(
+                'UserName:',
+                style: TextStyle(
+                  fontSize: 24,
+                  color: Colors.yellow,
+                ),
               ),
-            ),
-            TextField(
-              obscureText: true,
-              decoration: const InputDecoration(
-                labelText: 'Password',
-                hintText: 'Enter your password',
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.lock),
+              Text(
+                  'TextFleild here'
               ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text(
+                'Password:',
+                style: TextStyle(
+                  fontSize: 24,
+                  color: Colors.yellow,
+                ),
+              ),
+              Text(
+                  'TextFleild here'
+              ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  TextButton(
+                    onPressed: () => [],
+                    
+                    child:Text(
+                      'Click here',
+                      
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.red,
+                      ),
+                      ) ,
+                    ),
+                ],
+              ),
+            ],
+
+
+          ),
+          
+        ), 
       
-            ),
-          ],
-        ),
-        ),
+        
       ),
     );
   }
