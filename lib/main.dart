@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
+import 'pages/listview.dart';
+
 void main() {
-  debugPaintSizeEnabled = true;
+  debugPaintSizeEnabled = false;
   runApp(const MyApp());
 }
 
@@ -16,77 +18,63 @@ class MyApp extends StatelessWidget {
 
       home: Scaffold(
         appBar: AppBar(title: const Text('Login Page')),
-        body:Container(
-          width: 700,
-          height: 700,
-          child: Column( 
-             
-            mainAxisAlignment:MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
+        body: SingleChildScrollView(
+          child: Column(
+            // child: Container(
+            //   mainAxisAlignment: MainAxisAlignment.start,
+            //   crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
-                'Welcome to my app!!',
-                style: TextStyle(
-                  color: Colors.blue,
-                  fontSize: 35,
+              InkWell(
+                onTap: () => print('Welcome text button'),
+                child: Text(
+                  'Welcome to my app!!',
+                  style: TextStyle(color: Colors.blue, fontSize: 35),
                 ),
-                
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text(
-                'UserName:',
-                style: TextStyle(
-                  fontSize: 24,
-                  color: Colors.yellow,
-                ),
-              ),
-              Text(
-                  'TextFleild here'
-              ),
+                    'UserName:',
+                    style: TextStyle(fontSize: 24, color: Colors.yellow),
+                  ),
+                  Text('TextFleild here'),
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text(
-                'Password:',
-                style: TextStyle(
-                  fontSize: 24,
-                  color: Colors.yellow,
-                ),
-              ),
-              Text(
-                  'TextFleild here'
-              ),
+                    'Password:',
+                    style: TextStyle(fontSize: 24, color: Colors.yellow),
+                  ),
+                  Text('TextFleild here'),
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   TextButton(
-                    onPressed: () => [],
-                    
-                    child:Text(
+                    onPressed: () {},
+
+                    child: Text(
                       'Click here',
-                      
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.red,
-                      ),
-                      ) ,
+
+                      style: TextStyle(fontSize: 20, color: Colors.red),
                     ),
+                  ),
                 ],
               ),
+              Container(width: 500, height: 500, color: Colors.yellow),
+              Container(
+                margin: EdgeInsets.only(top: 40),
+                color: Colors.lightGreen,
+                width: 500,
+                height: 500,
+              ),
             ],
-
-
           ),
-          
-        ), 
-      
-        
+        ),
       ),
     );
   }
